@@ -9,7 +9,7 @@ import numpy as np
 import os 
 
 CURRENT_DIR = os.path.dirname(__file__)
-file_path   = os.path.join(CURRENT_DIR, "data/bike-share.csv")
+file_path   = os.path.join(CURRENT_DIR, "../data/bike-share.csv")
 
 bike_data =  pd.read_csv(file_path)
 # feature scale
