@@ -10,17 +10,6 @@ np.set_printoptions(precision=2)
 
 def compute_cost(X,y, w, b):    
 
-    """
-    compute cost
-    Args:
-      X (ndarray (m,n)): Data, m examples with n features
-      y (ndarray (m,)) : target values
-      w (ndarray (n,)) : model parameters  
-      b (scalar)       : model parameter
-      
-    Returns:
-      cost (scalar): cost
-    """
     m = X.shape[0]
     cost = 0.0
     for i in range(m):
@@ -30,19 +19,7 @@ def compute_cost(X,y, w, b):
     return cost
 
 def compute_gradient(X, y, w, b):
-    """
-    Computes the gradient for linear regression 
-    Args:
-      X (ndarray (m,n)): Data, m examples with n features
-      y (ndarray (m,)) : target values
-      w (ndarray (n,)) : model parameters  
-      b (scalar)       : model parameter
-      
-    Returns:
-      dj_dw (ndarray (n,)): The gradient of the cost w.r.t. the parameters w. 
-      dj_db (scalar):       The gradient of the cost w.r.t. the parameter b. 
 
-    """
     m,n = X.shape   #(number of examples, number of features)
     dj_dw = np.zeros((n,)) 
     dj_db = 0.
@@ -57,25 +34,7 @@ def compute_gradient(X, y, w, b):
 
 
 def gradient_descent (X, y, w_in, b_in, cost_function, gradient_function, alpha, num_iters):
-    """
-    Performs batch gradient descent to learn theta. Updates theta by taking 
-    num_iters gradient steps with learning rate alpha
-    
-    Args:
-      X (ndarray (m,n))   : Data, m examples with n features
-      y (ndarray (m,))    : target values
-      w_in (ndarray (n,)) : initial model parameters  
-      b_in (scalar)       : initial model parameter
-      cost_function       : function to compute cost
-      gradient_function   : function to compute the gradient
-      alpha (float)       : Learning rate
-      num_iters (int)     : number of iterations to run gradient descent
-      
-    Returns:
-      w (ndarray (n,)) : Updated values of parameters 
-      b (scalar)       : Updated value of parameter 
 
-    """
     # An array to store cost J and w's at each iteration primarily for graphing later
     J_history = []
     w = copy.deepcopy(w_in) # avoid to modifying global w_in
